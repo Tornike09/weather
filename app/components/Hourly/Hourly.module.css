@@ -1,0 +1,45 @@
+.mainCont {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #828282;
+    padding-bottom: 6px;
+}
+.titles {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+.titles p {
+    color: #7b7b7b;
+    font-size: 14px;
+}
+.mainCont ul li {
+    display: flex;
+    border-bottom: 1px solid #828282;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+}
+.listItem {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.listItem div {
+    max-width: 770px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.temp {
+    color: #b21002;
+}
+.humidity {
+    color: #1767ce;
+}

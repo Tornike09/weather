@@ -1,0 +1,37 @@
+.wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.mainCont {
+    width: 85%;
+    margin-top: 60px;
+}
+.mainCont > div {
+    display: flex;
+}
+.mainCont > div div {
+    margin-left: 15px;
+}
+.wrapper img {
+    width: 40px;
+    height: auto;
+}
+
+.nonActive {
+    color: #000;
+    text-decoration: none;
+    padding: 20px;
+}
+.nonActive:hover {
+    background-color: #e6f0ff;
+    color: #1667ce;
+}
+.active {
+    border-bottom: 3px solid #1667ce;
+    font-weight: 600;
+    color: #1667ce;
+    text-decoration: none;
+    padding: 20px;
+}
