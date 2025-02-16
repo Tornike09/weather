@@ -1,4 +1,4 @@
-export interface IWeatherProps {
+export interface IWeather {
     name: string;
     main: {
         temp_min: number;

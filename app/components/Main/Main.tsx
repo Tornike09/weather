@@ -6,14 +6,14 @@ import axios from "axios";
 import measureIcon from "../../images/4158502.png";
 import humidityIcon from "../../images/1582886.png";
 import windIcon from "../../images/2011448.png";
-import { IWeatherProps } from "@/app/types";
+import { IWeather } from "@/app/types";
 
 interface ICityProps {
   city: string;
 }
 
 export const Main: React.FC<ICityProps> = ({ city }) => {
-  const [weather, setWeather] = useState<IWeatherProps>();
+  const [weather, setWeather] = useState<IWeather>();
   const apiKey = "ae02d4775b3017654d6972c13a1ce89b";
 
   const getWeather = useCallback(async () => {
@@ -31,34 +31,34 @@ export const Main: React.FC<ICityProps> = ({ city }) => {
 
   useEffect(() => {
     getWeather();
-    // eslint-disable-next-line
-  }, [])
+  }, []);
 
-  const detectKeyDown = useCallback((e: KeyboardEvent) => {
-    if(e.key === 'Enter') {
-      console.log('clicked on enter');
-      getWeather()
-    } else {
-      console.log('not clicked');
-    }
-  }, [getWeather])
+  const detectKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        console.log("clicked on enter");
+        getWeather();
+      } else {
+        console.log("not clicked");
+      }
+    },
+    [getWeather]
+  );
 
   useEffect(() => {
-    document.addEventListener('keydown', detectKeyDown)
+    document.addEventListener("keydown", detectKeyDown);
 
     return () => {
-      document.removeEventListener('keydown', detectKeyDown)
-    }
-  }, [detectKeyDown])
+      document.removeEventListener("keydown", detectKeyDown);
+    };
+  }, [detectKeyDown]);
 
-  
-  
   return (
     <div>
       <div className={styles.mainCont}>
         <p className={styles.textCont}>
           <Image className={styles.clockIcon} src={icon} alt="" />
-          <p>Current Conditions in {weather && weather.name}</p>
+          <span>Current Conditions in {weather && weather.name}</span>
         </p>
         <div>
           {weather && (
@@ -71,9 +71,7 @@ export const Main: React.FC<ICityProps> = ({ city }) => {
               />
               <div className={styles.mainInfo}>
                 <Image src={measureIcon} width={20} height={20} alt="" />
-                <h1 className={styles.temp}>
-                  {weather.main.temp.toFixed(0)}°
-                </h1>
+                <h1 className={styles.temp}>{weather.main.temp.toFixed(0)}°</h1>
                 <p>Feels Like {weather.main.feels_like.toFixed(0)}°</p>
               </div>
               <div className={styles.mainInfo}>
@@ -83,9 +81,7 @@ export const Main: React.FC<ICityProps> = ({ city }) => {
               </div>
               <div className={styles.mainInfo}>
                 <Image src={windIcon} width={20} height={20} alt="" />
-                <h1 className={styles.wind}>
-                  {weather.wind.speed.toFixed(1)}
-                </h1>
+                <h1 className={styles.wind}>{weather.wind.speed.toFixed(1)}</h1>
                 <p>m/s</p>
               </div>
             </div>

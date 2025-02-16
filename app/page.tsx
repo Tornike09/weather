@@ -1,10 +1,8 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import { WeatherApp } from "./components/weatherApp/WeatherApp";
+import { WeatherApp } from "./components/WheatherApp/WeatherApp";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <WeatherApp/>
     </main>
   );
